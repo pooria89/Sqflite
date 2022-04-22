@@ -92,17 +92,46 @@ class _LoginUserState extends State<LoginUser> {
                 disabledColor: Colors.red.withOpacity(0.12),
                 disabledTextColor: Colors.red.withOpacity(0.38),
                 onPressed: () {
-                  String username = usernameController.text;
-                  String password = passwordController.text;
-                  SQLHelper.insert(username, password);
-                  print(username+password +"has been saved successfully");
+                  // String username = usernameController.text;
+                  // String password = passwordController.text;
+                  // SQLHelper.insert(username, password);
+                  // print(username+password +"has been saved successfully");
+                  insertDb(usernameController.text, passwordController.text);
                 },
-                child: const Text('Login'),
+                child: Text('Save in Db'),
+              ),
+            ),
+            SizedBox(height: 10.0,),
+            Container(
+              width: 310.0,
+              height: 50.0,
+              child: RaisedButton(
+                disabledColor: Colors.red.withOpacity(0.12),
+                disabledTextColor: Colors.red.withOpacity(0.38),
+                onPressed: () {
+                  getItems();
+                },
+                child: GestureDetector(
+                    onTap: () {
+                      getItems();
+                    },
+                    child: const Text('Read From Db')),
               ),
             )
           ],
         ),
       ),
     );
+  }
+
+  void insertDb(String username, String password) async {
+    SQLHelper.insert(username, password);
+    print('user saved $username + $password');
+  }
+
+  void getItems() async {
+    final rows = await SQLHelper.getItems();
+    print('query all rows');
+    rows.forEach(print);
   }
 }
