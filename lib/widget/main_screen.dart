@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:loginregister/data/sql_helper.dart';
 import 'package:loginregister/model/user.dart';
 
-class LoginUser extends StatefulWidget {
+class MainScreen extends StatefulWidget {
   @override
-  _LoginUserState createState() => _LoginUserState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _LoginUserState extends State<LoginUser> {
+class _MainScreenState extends State<MainScreen> {
   List<User> users = [];
 
   //controllers used in insert operation UI
@@ -101,7 +101,9 @@ class _LoginUserState extends State<LoginUser> {
                 child: Text('Save in Db'),
               ),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             Container(
               width: 310.0,
               height: 50.0,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loginregister/widget/login_user.dart';
+import 'package:loginregister/widget/main_screen.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: 'Login Register App',
       theme: ThemeData(primaryColor: Colors.blueAccent),
-      home: LoginUser(),
+      home: MainScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
